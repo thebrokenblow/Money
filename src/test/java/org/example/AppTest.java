@@ -8,14 +8,14 @@ public class AppTest
     extends TestCase
 {
     public void testDollarApp() {
-        Dollar five = new Dollar(5);
+        Money five = Money.dollar(5);
         assertEquals(new Dollar(10), five.times(2));
         assertEquals(new Dollar(15), five.times(3));
     }
     public void testFrancApp() {
-        Franc five = new Franc(5);
+        Money five = Money.franc(5);
         assertEquals(new Franc(10), five.times(2));
         assertEquals(new Franc(15), five.times(3));
-        assertEquals(new Dollar(15), five.times(3));
+        assertEquals(new Franc(15), five.times(3));
     }
 }
