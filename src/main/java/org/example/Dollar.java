@@ -1,20 +1,11 @@
 package org.example;
 
-public class Dollar {
-    private final int amount;
+public class Dollar extends Money {
     public Dollar(int amount) {
         this.amount = amount;
     }
 
     public Dollar times(int multiplier) {
         return new Dollar(amount * multiplier);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Dollar dollar) {
-            return amount == dollar.amount;
-        }
-        return false;
     }
 }
