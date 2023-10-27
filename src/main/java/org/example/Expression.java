@@ -1,5 +1,6 @@
 package org.example;
 
 public interface Expression {
-    public Money reduce(String to);
+    Expression plus(Expression addend);
+    Money reduce(Bank bank, String to);
 }
