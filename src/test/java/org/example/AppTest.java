@@ -18,7 +18,20 @@ public class AppTest
 
         Bank bank = new Bank();
         bank.addRate("CHF", "USD", 2);
-        Money result = bank.reduce(fiveBucks.plus(tenFranck), "USD");
+
+        Expression sum = new Sum(fiveBucks, tenFranck);
+        Money result = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10).amount, result.amount);
+    }
+    public void testSumTimes() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFranck = Money.franc(10);
+
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+
+        Expression sum = new Sum(fiveBucks, tenFranck).times(2);
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(20).amount, result.amount);
     }
 }
